@@ -1,0 +1,31 @@
+``Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, cost INTEGER, section TEXT);
+
+INSERT INTO store VALUES
+(1, 'batteries', 40, 9, 'electronics'),
+(2, 'chips', 35, 2, 'food'),
+(3, 'soda', 30, 2, 'drinks'),
+(4, 'controllers', 20, 60, 'electronics'),
+(5, 'bikes', 10, 90, 'sports'),
+(6, 'helmets', 10, 25, 'sports'),
+(7, 'towels', 15, 15, 'bath'),
+(8, 'phones', 20, 99, 'electronics'),
+(9, 'candy', 15, 2, 'food'),
+(10, 'gatorade', 15, 3, 'drinks');
+
+``display the database ordered by section
+SELECT * FROM store
+ORDER BY section ASC;
+
+``the avg cost of electronic items
+SELECT AVG(cost) "AVG electronic item cost"
+FROM store
+WHERE section='electronics';
+
+``Finding the 5 cheapest items
+SELECT item, cost
+FROM store
+ORDER BY cost ASC
+LIMIT 5;
+
